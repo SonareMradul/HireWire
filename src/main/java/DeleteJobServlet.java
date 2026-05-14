@@ -31,9 +31,9 @@ public class DeleteJobServlet
 
             Connection con =
                     DriverManager.getConnection(
-                            "jdbc:mysql://localhost:3306/hirewire",
+                            "jdbc:mysql://yamanote.proxy.rlwy.net:40575/railway",
                             "root",
-                            ""
+                            "XXiHNjHkKEmeYjWVsElVzKcroodbOoFo"
                     );
 
             String query =

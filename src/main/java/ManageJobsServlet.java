@@ -13,8 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/ManageJobsServlet")
 
-public class ManageJobsServlet
-        extends HttpServlet {
+public class ManageJobsServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request,
@@ -23,36 +22,44 @@ public class ManageJobsServlet
 
         response.setContentType("text/html");
 
-        PrintWriter out =
-                response.getWriter();
+        PrintWriter out = response.getWriter();
 
         try {
 
-            Class.forName(
-                    "com.mysql.cj.jdbc.Driver"
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://yamanote.proxy.rlwy.net:40575/railway",
+                    "root",
+                    "XXiHNjHkKEmeYjWVsElVzKcroodbOoFo"
             );
 
-            Connection con =
-                    DriverManager.getConnection(
-                            "jdbc:mysql://localhost:3306/hirewire",
-                            "root",
-                            ""
-                    );
-
-            String query =
-                    "SELECT * FROM jobs";
+            String query = "SELECT * FROM jobs";
 
             PreparedStatement ps =
                     con.prepareStatement(query);
 
-            ResultSet rs =
-                    ps.executeQuery();
+            ResultSet rs = ps.executeQuery();
+
+            out.println("<html>");
+
+            out.println("<head>");
+
+            out.println(
+                    "<link rel='stylesheet' href='css/style.css'>"
+            );
+
+            out.println("</head>");
+
+            out.println("<body>");
+
+            out.println("<div class='content'>");
 
             out.println("<h1>All Jobs</h1>");
 
-            out.println(
-                    "<table border='1' cellpadding='10'>"
-            );
+            out.println("<div class='table-container'>");
+
+            out.println("<table>");
 
             out.println(
                     "<tr>" +
@@ -99,28 +106,32 @@ public class ManageJobsServlet
                                 "</td>"
                 );
 
+                out.println("<td>");
+
                 out.println(
-                        "<td>" +
-
-                                "<a href='DeleteJobServlet?id=" +
-
-                                rs.getInt("id") +
-
-                                "'>" +
-
-                                "Delete" +
-
-                                "</a>" +
-
-                                "</td>"
+                        "<a class='delete-btn' href='DeleteJobServlet?id="
+                                + rs.getInt("id")
+                                + "'>Delete</a>"
                 );
+
+                out.println("</td>");
 
                 out.println("</tr>");
             }
 
             out.println("</table>");
 
-        } catch(Exception e) {
+            out.println("</div>");
+
+            out.println("</div>");
+
+            out.println("</body>");
+
+            out.println("</html>");
+
+        }
+
+        catch (Exception e) {
 
             response.getWriter().println(e);
         }

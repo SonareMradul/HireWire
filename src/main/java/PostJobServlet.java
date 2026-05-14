@@ -32,9 +32,9 @@ public class PostJobServlet extends HttpServlet {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/hirewire",
+                    "jdbc:mysql://yamanote.proxy.rlwy.net:40575/railway",
                     "root",
-                    ""
+                    "XXiHNjHkKEmeYjWVsElVzKcroodbOoFo"
             );
 
             String query =
