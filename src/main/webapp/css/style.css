@@ -826,3 +826,47 @@ table{
 
     table-layout:fixed;
 }
+.page-title{
+    text-align:center;
+    margin-top:30px;
+    color:#1e293b;
+}
+
+.jobs-container{
+    width:80%;
+    margin:30px auto;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.job-card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.job-card h2{
+    margin:0;
+    color:#111827;
+}
+
+.company{
+    color:gray;
+    margin-top:8px;
+}
+
+.apply-btn{
+    margin-top:15px;
+    padding:10px 20px;
+    border:none;
+    border-radius:6px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+}
+
+.apply-btn:hover{
+    background:#1d4ed8;
+}

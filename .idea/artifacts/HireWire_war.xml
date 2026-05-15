@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="HireWire:war">
-    <output-path>$PROJECT_DIR$/out/artifacts/HireWire_war</output-path>
-    <root id="archive" name="HireWire_war.war">
-      <element id="artifact" artifact-name="HireWire:war exploded" />
-    </root>
-  </artifact>
-</component>
